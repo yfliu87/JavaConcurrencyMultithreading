@@ -1,4 +1,4 @@
-package multithread.atomic;
+package atomic;
 
 import java.util.Random;
 

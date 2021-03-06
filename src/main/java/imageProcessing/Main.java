@@ -1,4 +1,4 @@
-package multithread.imageProcessing;
+package imageProcessing;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

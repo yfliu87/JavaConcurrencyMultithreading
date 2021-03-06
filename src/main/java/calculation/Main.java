@@ -1,4 +1,4 @@
-package multithread.calculation;
+package calculation;
 
 import java.math.BigInteger;
 

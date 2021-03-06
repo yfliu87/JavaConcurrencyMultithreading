@@ -1,4 +1,4 @@
-package multithread.criticalSection;
+package criticalSection;
 
 public class InventoryCounter {
     private int items = 0;

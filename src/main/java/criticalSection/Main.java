@@ -1,4 +1,4 @@
-package multithread.criticalSection;
+package criticalSection;
 
 public class Main {
 
