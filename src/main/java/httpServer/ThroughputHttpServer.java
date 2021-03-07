@@ -13,7 +13,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 public class ThroughputHttpServer {
-    private static final String INPUT_FILE = "src/main/java/multithread/httpServer/resources/war_and_peace.txt";
+    private static final String INPUT_FILE = "src/main/java/httpServer/resources/war_and_peace.txt";
     private static final int NUMBER_OF_THREADS = Runtime.getRuntime().availableProcessors();
 
     public static void main(String[] args) throws IOException {

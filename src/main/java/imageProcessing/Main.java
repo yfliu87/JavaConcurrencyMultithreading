@@ -9,8 +9,8 @@ import java.util.List;
 
 public class Main {
 
-    public static final String SOURCE_FILE = "src/main/java/multithread/imageProcessing/resources/flowers.jpg";
-    public static final String DESTINATION_FILE = "src/main/java/multithread/imageProcessing/out/flowers.jpg";
+    public static final String SOURCE_FILE = "src/main/java/imageProcessing/resources/flowers.jpg";
+    public static final String DESTINATION_FILE = "src/main/java/imageProcessing/out/flowers.jpg";
     public static ImageProcessor processor = new ImageProcessor();
 
     public static void main(String[] args) throws IOException {
