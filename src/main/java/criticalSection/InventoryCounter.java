@@ -2,6 +2,7 @@ package criticalSection;
 
 public class InventoryCounter {
     private int items = 0;
+    //private AtomicInteger items = new AtomicInteger(0);
 
     Object lock = new Object();
 

@@ -1,4 +1,4 @@
-package atomic;
+package volatility;
 
 import java.util.Random;
 
@@ -28,9 +28,7 @@ public class Main {
             while(true) {
                 try {
                     Thread.sleep(1);
-                } catch (InterruptedException e) {
-
-                }
+                } catch (InterruptedException e) { }
                 double currentAverage = metrics.getAverage();
 
                 System.out.println("Current average is: " + currentAverage);
@@ -53,9 +51,7 @@ public class Main {
 
                 try {
                     Thread.sleep(random.nextInt(2));
-                } catch (InterruptedException e) {
-
-                }
+                } catch (InterruptedException e) { }
 
                 long end = System.currentTimeMillis();
 
@@ -64,18 +60,4 @@ public class Main {
         }
     }
 
-    public static class Metrics {
-        private long count = 0;
-        private volatile double average = 0.0;
-
-        public synchronized void addSample(long sample) {
-            double currentSum = this.average * this.count;
-            this.count++;
-            this.average = (currentSum + sample) / this.count;
-        }
-
-        public double getAverage() {
-            return this.average;
-        }
-    }
 }
