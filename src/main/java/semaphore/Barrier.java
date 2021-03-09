@@ -5,34 +5,38 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class Barrier {
-    private Semaphore semaphore = new Semaphore(0);
-    private final int numberOfWorkers;
-    private int counter = 0;
+    private Semaphore semaphore;
+    private int semaphorePermitsCount;
+    private int counter;
     private Lock lock = new ReentrantLock();
 
-    public Barrier(int numberOfWorkers) {
-        this.numberOfWorkers = numberOfWorkers;
+    public Barrier(int semaphorePermitsCount) {
+        this.semaphorePermitsCount = semaphorePermitsCount;
+        this.semaphore = new Semaphore(this.semaphorePermitsCount);
     }
 
     public void barrier() {
         this.lock.lock();
-        boolean isLastWorker = false;
+        boolean shouldReleaseBuffer = false;
 
         try {
             counter++;
 
-            if (counter == this.numberOfWorkers) {
-                isLastWorker = true;
+            if (counter == this.semaphorePermitsCount) {
+                shouldReleaseBuffer = true;
+                counter = 0;
             }
         } finally {
             lock.unlock();
         }
 
-        if (isLastWorker) {
-            semaphore.release(this.numberOfWorkers - 1);
+        if (shouldReleaseBuffer) {
+            semaphore.release(this.semaphorePermitsCount - 1); // thread is unblocked after release
+            System.out.println("Semaphore released");
         } else {
             try {
-                semaphore.acquire();
+                semaphore.acquire(); // thread is not blocked before all permits are acquired
+                System.out.println(Thread.currentThread().getName() + " acquired semaphore");
             } catch (InterruptedException e) {
 
             }
