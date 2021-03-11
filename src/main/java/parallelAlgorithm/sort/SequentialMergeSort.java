@@ -19,5 +19,8 @@ public class SequentialMergeSort extends AbstractSort {
         merge(low, middle, high);
     }
 
+    @Override
+    public void sort(final int low, final int high, final int numOfThreads) { }
+
 
 }

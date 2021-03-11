@@ -7,6 +7,9 @@ public class ParallelMergeSort extends AbstractSort {
     }
 
     @Override
+    public void sort(final int low, final int high) { }
+
+    @Override
     public void sort(int low, int high, int numOfThreads) {
         if (numOfThreads <= 1) {
             sequentialMergeSort(low, high);

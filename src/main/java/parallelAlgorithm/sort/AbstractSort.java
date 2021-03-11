@@ -1,6 +1,6 @@
 package parallelAlgorithm.sort;
 
-public class AbstractSort {
+public abstract class AbstractSort {
 
     protected int[] values;
     protected int[] temp;
@@ -10,9 +10,9 @@ public class AbstractSort {
         this.temp = new int[values.length];
     }
 
-    public void sort(int low, int high) {};
+    public abstract void sort(int low, int high);
 
-    public void sort(int low, int high, int numOfThreads) {};
+    public abstract void sort(int low, int high, int numOfThreads);
 
     protected void merge(int low, int middle, int high) {
         for (int i = low; i <= high; i++) {
